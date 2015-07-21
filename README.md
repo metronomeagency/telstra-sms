@@ -1,5 +1,5 @@
 # SMSBundle
-Symfony2 Bundle -  Send SMS using Telstra API. This is an implimentation of scaytrase/symfony-sms-interface.
+Symfony2 Bundle -  Send SMS using Telstra API. This is an implimentation of scaytrase/symfony-sms-interface. Go and [Register](https://dev.telstra.com/) to get your API keys
 
 
 ## Installation
