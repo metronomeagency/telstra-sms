@@ -1,7 +1,6 @@
 {
     "name": "thilanga/telstra-sms",
     "description": "Symfony2 bundle for Telstra SMS API",
-    "minimum-stability": "dev",
     "type": "git",
     "require": {
         "scaytrase/symfony-sms-interface": "dev-master",
