@@ -61,3 +61,7 @@ Basic interface supports two optional parameters:
         }
     }
 ```
+
+## Credits
+[scaytrase](https://github.com/scaytrase/symfony-sms-interface) and [kubacode](https://github.com/kubacode/telstraSM)
+
