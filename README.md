@@ -9,7 +9,7 @@ Installation is available via Composer
 
 
 ```
-require: "thilanga/smsbundle": "dev-master"
+require: "thilanga/telstra-sms": "dev-master"
 ```
 
 ### app/AppKernel.php
