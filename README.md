@@ -1,5 +1,6 @@
 # SMSBundle
-Symfony2 Bundle -  Send SMS using Telstra API
+Symfony2 Bundle -  Send SMS using Telstra API. This is an implimentation of scaytrase/symfony-sms-interface.
+
 
 ## Installation
 
@@ -19,6 +20,7 @@ update your kernel bundle requirements as follows:
 ```
 $bundles = array(
     ....
+    new ScayTrase\Utils\SMSDeliveryBundle\SMSDeliveryBundle(),
     new SMSBundle\SMSBundle(),
     ....
     );
