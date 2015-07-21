@@ -3,7 +3,7 @@
     "description": "Symfony2 bundle for Telstra SMS API",
     "type": "git",
     "require": {
-        "scaytrase/symfony-sms-interface": "dev-master",
+        "scaytrase/symfony-sms-interface": "@beta",
         "guzzlehttp/guzzle": "^6.0"
     },
     "license": "MIT",
