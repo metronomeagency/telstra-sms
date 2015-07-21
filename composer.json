@@ -1,9 +1,8 @@
 {
     "name": "thilanga/telstra-sms",
     "description": "Symfony2 bundle for Telstra SMS API",
-    "type": "git",
     "require": {
-        "scaytrase/symfony-sms-interface": "~0.2.@beta",
+        "scaytrase/symfony-sms-interface": "~0.2.0@beta",
         "guzzlehttp/guzzle": "^6.0"
     },
     "license": "MIT",
@@ -12,6 +11,5 @@
             "name": "Thilanga Pitigala",
             "email": "pittado@gmail.com"
         }
-    ],
-    "minimum-stability": "beta"
+    ]
 }
