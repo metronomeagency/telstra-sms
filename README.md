@@ -9,7 +9,7 @@ Installation is available via Composer
 
 
 ```
-require: "thilanga/smsbundle": "^0.1.1@beta"
+require: "thilanga/smsbundle": "dev-master"
 ```
 
 ### app/AppKernel.php
