@@ -11,5 +11,10 @@
             "name": "Thilanga Pitigala",
             "email": "pittado@gmail.com"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-0": {
+            "Thilanga\\Telstra\\SMSBundle": "src/"
+        }
+    }
 }
