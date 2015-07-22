@@ -1,6 +1,6 @@
 <?php
 
-namespace SMSBundle\Service\Telstra;
+namespace Thilanga\Telstra\SMSBundle\Service\Telstra;
 
 use ScayTrase\Utils\SMSDeliveryBundle\Exception\DeliveryFailedException;
 use ScayTrase\Utils\SMSDeliveryBundle\Service\ShortMessageInterface;

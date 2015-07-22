@@ -1,6 +1,6 @@
 <?php
 
-namespace SMSBundle\DependencyInjection;
+namespace Thilanga\Telstra\SMSBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -20,7 +20,8 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('sms');
+
+        $rootNode = $treeBuilder->root('thilanga_telstra_sms');
 
         $sms_api_key = (new ScalarNodeDefinition('sms_api_key'));
         $sms_api_secret = (new ScalarNodeDefinition('sms_api_secret'));

@@ -1,6 +1,6 @@
 <?php
 
-namespace SMSBundle\Service\Telstra;
+namespace Thilanga\Telstra\SMSBundle\Service\Telstra;
 
 use MyProject\Proxies\__CG__\OtherProject\Proxies\__CG__\stdClass;
 use ScayTrase\Utils\SMSDeliveryBundle\Exception\DeliveryFailedException;

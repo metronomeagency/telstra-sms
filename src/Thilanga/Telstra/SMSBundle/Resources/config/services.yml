@@ -1,0 +1,2 @@
+parameters:
+    sms_delivery.class: Thilanga\Telstra\SMSBundle\Service\Telstra\TelstraMessageDeliveryService
