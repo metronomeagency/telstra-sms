@@ -31,7 +31,7 @@ $bundles = array(
 Basic interface supports two optional parameters:
 
 ```
-#sms:
+#thilanga_telstra_sms:
 #    enabled: true #By default enabled:false
 #    sms_api_key: "######" #Consumer Key from https://dev.telstra.com   
 #    sms_api_secret: "######" #Consumer Secret https://dev.telstra.com 
