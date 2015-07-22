@@ -1,5 +1,5 @@
 # SMSBundle
-Symfony2 Bundle -  Send SMS using Telstra API. This is an implimentation of scaytrase/symfony-sms-interface. Go and [Register](https://dev.telstra.com/) to get your API keys
+Symfony2 Bundle -  Send SMS using Telstra API. This is an implimentation of scaytrase/symfony-sms-interface. Make sure you have Telestra API keys. [Register here](https://dev.telstra.com/) to get your API keys.
 
 
 ## Installation
@@ -21,7 +21,7 @@ update your kernel bundle requirements as follows:
 $bundles = array(
     ....
     new ScayTrase\Utils\SMSDeliveryBundle\SMSDeliveryBundle(),
-    new SMSBundle\SMSBundle(),
+    new Thilanga\Telstra\SMSBundle\ThilangaTelstraSMSBundle(),
     ....
     );
 ```
@@ -44,7 +44,9 @@ Basic interface supports two optional parameters:
 ### Example
 
 ```
- /**
+    use Thilanga\Telstra\SMSBundle\Service\Telstra\SMSMessage;
+
+    /**
      * @Route("/testsms", name="testsms")
      */
     public function sendSmsAction()
@@ -63,5 +65,5 @@ Basic interface supports two optional parameters:
 ```
 
 ## Credits
-[scaytrase](https://github.com/scaytrase/symfony-sms-interface) and [kubacode](https://github.com/kubacode/telstraSM)
+[scaytrase](https://github.com/scaytrase/symfony-sms-interface) and [kubacode](https://github.com/kubacode/telstraSMS)
 
