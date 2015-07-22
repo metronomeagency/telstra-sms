@@ -20,7 +20,7 @@ update your kernel bundle requirements as follows:
 ```
 $bundles = array(
     ....
-    new ScayTrase\Utils\SMSDeliveryBundle\SMSDeliveryBundle(),
+    new ScayTrase\SmsDeliveryBundle\SmsDeliveryBundle(),
     new Thilanga\Telstra\SMSBundle\ThilangaTelstraSMSBundle(),
     ....
     );
