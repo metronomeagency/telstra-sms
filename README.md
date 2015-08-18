@@ -20,21 +20,27 @@ update your kernel bundle requirements as follows:
 ```
 $bundles = array(
     ....
-    new ScayTrase\SmsDeliveryBundle\SmsDeliveryBundle(),
-    new Thilanga\Telstra\SMSBundle\ThilangaTelstraSMSBundle(),
+     //SMS
+     new ScayTrase\SmsDeliveryBundle\SmsDeliveryBundle(),
+     new Thilanga\Telstra\SMSBundle\ThilangaTelstraSMSBundle(),
+
     ....
     );
 ```
 
 ## Configuration
 
-Basic interface supports two optional parameters:
-
 ```
-#thilanga_telstra_sms:
-#    enabled: true #By default enabled:false
-#    sms_api_key: "######" #Consumer Key from https://dev.telstra.com   
-#    sms_api_secret: "######" #Consumer Secret https://dev.telstra.com 
+sms_delivery:
+    transport: sms_delivery.transport.telstra
+    disable_delivery: false
+    delivery_recipient: null
+
+thilanga_telstra_sms:
+    enabled: true
+    sms_api_key: xxxxxxxxxxxxxxxxxxx
+    sms_api_secret: yyyyyyyyyyyyyyyy
+
 ```
 
 ## Usage
@@ -44,14 +50,15 @@ Basic interface supports two optional parameters:
 ### Example
 
 ```
-    use Thilanga\Telstra\SMSBundle\Service\Telstra\SMSMessage;
+    use Thilanga\Telstra\SMSBundle\Message\TelstraSmsMessage;
 
     /**
      * @Route("/testsms", name="testsms")
      */
     public function sendSmsAction()
     {
-        $message = new SMSMessage('0400001111', 'This is a test message.');
+        $message = new TelstraSmsMessage('0400001111', 'This is a test message.');
+
         $sender = $this->get('sms_delivery.sender');
 
         $result = $sender->send($message);
