@@ -1,2 +1,5 @@
-parameters:
-    sms_delivery.class: Thilanga\Telstra\SMSBundle\Service\Telstra\TelstraMessageDeliveryService
+services:
+  sms_delivery.transport.telstra:
+    class: Thilanga\Telstra\SMSBundle\Transport\TelstraSmsTransport
+    arguments:
+    - @service_container

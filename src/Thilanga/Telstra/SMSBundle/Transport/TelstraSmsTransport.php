@@ -1,25 +1,23 @@
 <?php
 
-namespace Thilanga\Telstra\SMSBundle\Service\Telstra;
+namespace Thilanga\Telstra\SMSBundle\Transport;
 
-use MyProject\Proxies\__CG__\OtherProject\Proxies\__CG__\stdClass;
-use ScayTrase\Utils\SMSDeliveryBundle\Exception\DeliveryFailedException;
-use ScayTrase\Utils\SMSDeliveryBundle\Service\MessageDeliveryService;
-use ScayTrase\Utils\SMSDeliveryBundle\Service\ShortMessageInterface;
+
+use ScayTrase\SmsDeliveryBundle\Exception\DeliveryFailedException;
+use ScayTrase\SmsDeliveryBundle\Service\ShortMessageInterface;
+use ScayTrase\SmsDeliveryBundle\Transport\TransportInterface;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\BadResponseException;
+use Thilanga\Telstra\SMSBundle\Message\TelstraSmsMessage;
 
-class TelstraMessageDeliveryService extends MessageDeliveryService
+
+class TelstraSmsTransport implements TransportInterface
 {
-
     const API_URL = 'https://api.telstra.com/';
     const API_VERSION = 'v1';
 
     private $container;
 
-    /**
-     * @var Client
-     */
     private $client;
 
     private $clientID;
@@ -27,10 +25,10 @@ class TelstraMessageDeliveryService extends MessageDeliveryService
     private $clientSecret;
 
     private $accessToken;
-    
+
     public function __construct($container)
     {
-        parent::__construct($container);
+
 
         $this->container = $container;
         $client = new Client([
@@ -38,13 +36,12 @@ class TelstraMessageDeliveryService extends MessageDeliveryService
             'exceptions' => FALSE
         ]);
 
+
         $this->client = $client;
-        $this->clientID = $this->container->getParameter('sms_key');
-        $this->clientSecret = $this->container->getParameter('sms_secret');
+        $this->clientID = $this->container->getParameter('thilanga_telstra_sms.sms_api_key');
+        $this->clientSecret = $this->container->getParameter('thilanga_telstra_sms.sms_api_secret');
 
-        $this->authenticate();
     }
-
 
     /**
      *
@@ -60,11 +57,23 @@ class TelstraMessageDeliveryService extends MessageDeliveryService
                 'scope' => 'SMS'
             ]]);
 
-        if($response->getStatusCode() == 200) {
+        if ($response->getStatusCode() == 200) {
             $accessToken = json_decode($response->getBody())->access_token;
         }
 
         $this->accessToken = $accessToken;
+    }
+
+    /**
+     * @param ShortMessageInterface $message
+     * @return boolean
+     *
+     * @throws DeliveryFailedException
+     */
+    public function send(ShortMessageInterface $message)
+    {
+        $telstraSmsMessage = new TelstraSmsMessage($message->getRecipient(), $message->getBody());
+        return $this->sendMessage($telstraSmsMessage);
     }
 
     /**
@@ -75,8 +84,9 @@ class TelstraMessageDeliveryService extends MessageDeliveryService
     public function sendMessage(ShortMessageInterface $message)
     {
 
-
-        if($this->accessToken != false) {
+        //Do authenticate here
+        $this->authenticate();
+        if ($this->accessToken != false) {
             $to = $this->formatNumber($message->getRecipient());
 
             $response = $this->client->post('sms/messages', [

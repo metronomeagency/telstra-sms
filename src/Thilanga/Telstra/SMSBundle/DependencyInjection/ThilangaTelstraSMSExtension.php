@@ -24,6 +24,10 @@ class ThilangaTelstraSMSExtension extends Extension
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         if (isset($config['enabled']) && $config['enabled']) {
+
+            $container->setParameter('thilanga_telstra_sms.sms_api_key', $config['sms_api_key']);
+            $container->setParameter('thilanga_telstra_sms.sms_api_secret', $config['sms_api_secret']);
+
             $loader->load('services.yml');
         }
     }
